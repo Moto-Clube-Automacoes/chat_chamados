@@ -6,14 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Suporte T.I</title>
     <style>
-        /* Reset de Estilos */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        /* Corpo da Página */
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #ff0202 0%, #d60303 100%);
@@ -23,8 +20,6 @@
             height: 100vh;
             overflow: hidden;
         }
-
-        /* Header Responsivo */
         .header {
             width: 100%;
             background: #000000;
@@ -35,82 +30,133 @@
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             gap: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
-
         .logo {
             height: 50px;
             max-width: 150px;
         }
-
         .header-title {
             font-size: 1.5rem;
             white-space: nowrap;
         }
-
-        @media (max-width: 480px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-                padding: 10px;
-            }
-            .logo {
-                height: auto;
-                max-width: 100px;
-            }
-            .header-title {
-                font-size: 1.2rem;
-            }
+        .menu-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: #0000007c;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 9999999;
+            border-radius: 5px;
         }
-
-        /* Centralizando o Container do Chat */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #222;
+            padding-top: 60px;
+            transition: left 0.3s ease;
+        }
+        .sidebar.open {
+            left: 0;
+            z-index: 999999;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background: #444;
+        }
+        .sidebar img {
+            width: 30px;
+            margin-right: 10px;
+        }
         .chat-container {
             width: 100%;
             max-width: 400px;
             height: 550px;
-            position: relative;
-            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
-
-        @media (max-width: 480px) {
-            .chat-container {
-                width: 100%;
-                height: 100%;
-                border-radius: 0;
-            }
-        }
-
-        /* Estilo do Chat */
         iframe {
             width: 100%;
-            max-width: 400px;
             height: 100%;
-            max-height: 80vh;
-            position: absolute;
-            bottom: 20px;
             border: none;
-            margin: 5px;
+            border-radius: 30px;
+        }
+        .whatsapp-button-container {
+            position: absolute;
+            bottom: 60px;
+            width: 60%;
+            display: flex;
+            justify-content: center;
+        }
+        #whatsapp-link-p-t-q-r-milvus {
             display: block;
-            border-radius: 11px;
-            z-index: 999999;
-            right: 0px;
+            background-color: #046421;
+            width: 100px;
+            height: 50px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        #whatsapp-link-p-t-q-r-milvus:hover {
+            background-color: #599c48;
+        }
+        #whatsapp-link-p-t-q-r-milvus img {
+            width: 30px;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Responsivo com espaço para a logo -->
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <div class="sidebar" id="sidebar">
+        <a href="https://www.google.com" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">Google
+        </a>
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook">Facebook
+        </a>
+        <a href="https://www.linkedin.com" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">LinkedIn
+        </a>
+    </div>
     <header class="header">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/957px-Honda_Logo.svg.png" alt="Logo" class="logo">
         <h1 class="header-title">Suporte T.I Grupo Clube</h1>
     </header>
-
-    <!-- Área onde o widget do chat será carregado -->
     <div class="chat-container" id="chat-container">
-        <iframe id="iframe_chat" src="https://widgetchat.milvus.com.br/#/user-identification?novo_chat=true&amp;token=WUUEOA7IEJB7P9OSRL2SLYSB90PR61LCWB3HDYX64IYS75Y0CAI8DBS7XT2EB260NLOK27RG2QVC0QVW5O15QJRTYBLKAX7KC1O0E" style="display: block;"></iframe>
+        <iframe id="iframe_chat" src="https://widgetchat.milvus.com.br/#/user-identification?novo_chat=true&amp;token=WUUEOA7IEJB7P9OSRL2SLYSB90PR61LCWB3HDYX64IYS75Y0CAI8DBS7XT2EB260NLOK27RG2QVC0QVW5O15QJRTYBLKAX7KC1O0E"></iframe>
     </div>
-
-    <!-- Novo Script da API do Chat -->
-    <script src='https://apichat.milvus.com.br/apichat/whatsapp/script/a0c6428956/d8c03bfe273cc2e0efa2f9a8482e1f1f3044310dba163358aef24cefeea11b6d78d89b9f91ad9fe05f28124f46e55995c3ba339e15f9fc820f06933a1790c8755d1bf1680794969bc66782aee784886087fbab16a9ddb070017474e20e84e5aad97275628f'></script>
-
+    <div class="whatsapp-button-container">
+        <a id="whatsapp-link-p-t-q-r-milvus" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=+557532116912&amp;text=Oi&amp;source=&amp;data=&amp;app_absent=" title="Contactar +55 7532116912">
+            <img src="https://img.icons8.com/ios7/600/FFFFFF/whatsapp.png" alt="WhatsApp">
+        </a>
+    </div>
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("open");
+        }
+    </script>
 </body>
 </html>
