@@ -64,11 +64,12 @@
             height: 100%;
             background: #222;
             padding-top: 60px;
+            display: flex;
+            flex-direction: column;
             transition: left 0.3s ease;
         }
         .sidebar.open {
             left: 0;
-            z-index: 999999;
         }
         .sidebar a {
             display: flex;
@@ -85,6 +86,9 @@
         .sidebar img {
             width: 30px;
             margin-right: 10px;
+        }
+        .sidebar-footer {
+            margin-top: auto;
         }
         .chat-container {
             width: 100%;
@@ -143,16 +147,16 @@
         <a href="https://microworkcloud.com.br/" target="_blank">
             <img src="https://scontent.frec39-1.fna.fbcdn.net/v/t39.30808-6/309587523_788500502130456_1499169720510122761_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=2Y3utzEk134Q7kNvgEqd_JC&_nc_oc=AdnDYXveusN02BXdVEgNhFb4nu4LVntJ2I5K2vEbmNs15BbKMZDz5gFLc5Pr8K4dA4Y&_nc_zt=23&_nc_ht=scontent.frec39-1.fna&_nc_gid=JQ8F9zC7_efWEHYsXN8SeA&oh=00_AYFGGs81q-K199B5Dj8k8mfHqwAygvgVxtCiWaK57Bj5Vg&oe=67ECBC29" alt="Consórcio Honda">MicroWork Cloud
         </a>
-        
         <!-- Novo item no rodapé -->
         <div class="sidebar-footer">
             <a href= "chat.html" target="_blank">
                 <img src="https://img.icons8.com/color/48/000000/info.png" alt="Suporte">Suporte T.I
             </a>
         </div>
+    </div>
     <header class="header">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/957px-Honda_Logo.svg.png" alt="Logo" class="logo">
-        <h1 class="header-title">Suporte T.I Grupo Clube</h1>
+        <h1 class="header-title">T.I Grupo Clube</h1>
     </header>
     <div class="chat-container" id="chat-container">
         <iframe id="iframe_chat" src="https://widgetchat.milvus.com.br/#/user-identification?novo_chat=true&amp;token=WUUEOA7IEJB7P9OSRL2SLYSB90PR61LCWB3HDYX64IYS75Y0CAI8DBS7XT2EB260NLOK27RG2QVC0QVW5O15QJRTYBLKAX7KC1O0E"></iframe>
