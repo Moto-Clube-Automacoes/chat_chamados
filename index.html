@@ -1,178 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Suporte T.I</title>
+
+    <!-- Redirecionamento automático para WhatsApp -->
+    <script>
+        window.onload = function() {
+            window.location.href = "https://api.whatsapp.com/send?phone=+557532116912&text=Necessito%20de%20suporte";
+        };
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #313030 0%, #727272 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .header {
-            width: 100%;
-            background: #000000;
-            color: #fafafa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            gap: 10px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .logo {
-            height: 50px;
-            max-width: 150px;
-        }
-        .header-title {
-            font-size: 1.5rem;
-            white-space: nowrap;
-        }
-        .menu-btn {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background: #00000079;
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 9999999;
-            border-radius: 5px;
-        }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background: #ffffff;
-            padding-top: 60px;
-            display: flex;
-            flex-direction: column;
-            transition: left 0.3s ease;
-        }
-        .sidebar.open {
-            left: 0;
-            z-index: 2;
-        }
-        .sidebar a {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            text-decoration: none;
-            color: rgb(0, 0, 0);
-            font-size: 18px;
-            transition: 0.3s;
-        }
-        .sidebar a:hover {
-            background: #0000008a;
-        }
-        .sidebar img {
-            width: 30px;
-            margin-right: 10px;
-        }
-        .sidebar-footer {
-            margin-top: auto;
-        }
-        .chat-container {
-            width: 100%;
-            max-width: 400px;
-            height: 550px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 30px;
-            z-index: 1;
-        }
-        .whatsapp-button-container {
-            position: absolute;
-            bottom: 60px;
-            width: 60%;
-            display: flex;
-            justify-content: center;
-        }
-        #whatsapp-link-p-t-q-r-milvus {
-            display: block;
-            background-color: #046421;
-            width: 100px;
-            height: 50px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-        #whatsapp-link-p-t-q-r-milvus:hover {
-            background-color: #599c48;
-        }
-        #whatsapp-link-p-t-q-r-milvus img {
-            width: 30px;
-            margin-right: 10px;
-        }
+       
     </style>
 </head>
 <body>
-    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-    <div class="sidebar" id="sidebar">
-        <a href="https://www3.honda.com.br" target="_blank">
-            <img src="https://img.icons8.com/ios-filled/30/000000/home.png" alt="IHS"> IHS
-        </a>
-        <a href="https://motoclube.syonet.com" target="_blank">
-            <img src="https://img.icons8.com/ios-filled/30/000000/briefcase.png" alt="Syonet"> Syonet
-        </a>
-        <a href="https://vendadigital.consorciohonda.com.br/" target="_blank">
-            <img src="https://img.icons8.com/ios-filled/30/000000/money.png" alt="Consórcio Honda"> Consórcio Honda
-        </a>
-        <a href="https://microworkcloud.com.br/" target="_blank">
-            <img src="https://img.icons8.com/ios-filled/30/000000/cloud.png" alt="MicroWork Cloud"> MicroWork Cloud
-        </a>
-         <!--Novo item no rodapé -->
-        <div class="sidebar-footer">
-            <a href="https://api.whatsapp.com/send?phone=+557532116912&amp;text=Oi&amp;source=&amp;data=&amp;app_absent=" target="_blank">
-                <img src="https://img.icons8.com/?size=512&id=16466&format=png" alt="Suporte"> Whatsapp TI
-            </a>
-        
-        </div>
-    </div>
-    <header class="header">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/957px-Honda_Logo.svg.png" alt="Logo" class="logo">
-        <h1 class="header-title">T.I Grupo Clube</h1>
-    </header>
-    <div class="chat-container" id="chat-container">
-        <iframe id="iframe_chat" src="https://widgetchat.milvus.com.br/#/user-identification?novo_chat=true&amp;token=WUUEOA7IEJB7P9OSRL2SLYSB90PR61LCWB3HDYX64IYS75Y0CAI8DBS7XT2EB260NLOK27RG2QVC0QVW5O15QJRTYBLKAX7KC1O0E"></iframe>
-    </div>
-    <!-- <div class="whatsapp-button-container">
-        <a id="whatsapp-link-p-t-q-r-milvus" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=+557532116912&amp;text=Oi&amp;source=&amp;data=&amp;app_absent=" title="Contactar +55 7532116912">
-            <img src="https://img.icons8.com/ios7/600/FFFFFF/whatsapp.png" alt="WhatsApp">
-        </a>
-    </div> -->
-    <script>
-        function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("open");
-        }
-    </script>
+   
+
+
+    <noscript>
+        <p>Você está sendo redirecionado para o WhatsApp... Se não for redirecionado, <a href="https://api.whatsapp.com/send?phone=+557532116912&text=Oi">clique aqui</a>.</p>
+    </noscript>
 </body>
 </html>
